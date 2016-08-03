@@ -1,8 +1,8 @@
-## generate-sapling-pc
+# 使用说明
 
 [![Build Status](https://travis-ci.org/sapling-team/generator-sapling-pc.svg?branch=master)](https://travis-ci.org/sapling-team/generator-sapling-pc)
 
-音悦台PC端项目脚手架，项目所使用的工具如下：
+MP牛人BBS  PC端项目脚手架，项目所使用的工具如下：
 
 > Node version v4.4.1
 

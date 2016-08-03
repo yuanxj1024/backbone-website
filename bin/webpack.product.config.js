@@ -1,7 +1,3 @@
-/**
- * Created by xiangwenwen on 16/4/12.
- */
-
 var webpack = require('webpack');
 var path = require('path');
 var fs = require('fs');
@@ -32,20 +28,20 @@ var plugins = [];
 plugins.push(extractSASS);
 
 //  提取公共文件
-plugins.push(new webpack.optimize.CommonsChunkPlugin('common','common-[hash].js'));
+plugins.push(new webpack.optimize.CommonsChunkPlugin('common', 'common-[hash].js'));
 
 //处理html
 var pages = getEntry('./app/web/*.jade');
-for(var chunkname in pages){
+for (var chunkname in pages) {
   var conf = {
-    filename: chunkname+'.html',
+    filename: chunkname + '.html',
     template: pages[chunkname],
     inject: true,
     minify: {
-        removeComments: true,
-        collapseWhitespace: false
+      removeComments: true,
+      collapseWhitespace: false
     },
-    chunks: ['common',chunkname],
+    chunks: ['common', chunkname],
     hash: false,
     complieConfig: compileConfig
   }
@@ -68,8 +64,8 @@ for(var chunkname in pages){
 process.env.NODE_ENV = 'product';
 //  注入环境变量
 plugins.push(new webpack.DefinePlugin({
-  process:{
-    env:{
+  process: {
+    env: {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV)
     }
   }
@@ -79,37 +75,31 @@ plugins.push(new webpack.DefinePlugin({
 var config = {
   entry: entrys,
   output: {
-    path: path.resolve(containerPath,'app/www'),
+    path: path.resolve(containerPath, 'app/www'),
     publicPath: './',
     filename: '[name]-[hash].js'
   },
   devtool: 'eval-source-map',
   module: {
-    loaders:[
-      {
-        test: /\.html$/,
-        loader: 'raw',
-        exclude: /(node_modules)/
-      },
-      {
-        test: /\.js$/,
-        loader: 'eslint-loader',
-        exclude: /(node_modules)/
-      },
-      {
-        test: /\.scss$/i,
-        loader: extractSASS.extract(['css','sass'])
-      },
-      {
-        test: /.jade$/i,
-        loader: 'jade-loader',
-        exclude: /(node_modules)/
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        loader: 'url-loader?limit=8192&name=images/[name]-[hash].[ext]'
-      }
-    ]
+    loaders: [{
+      test: /\.html$/,
+      loader: 'raw',
+      exclude: /(node_modules)/
+    }, {
+      test: /\.js$/,
+      loader: 'eslint-loader',
+      exclude: /(node_modules)/
+    }, {
+      test: /\.scss$/i,
+      loader: extractSASS.extract(['css', 'sass'])
+    }, {
+      test: /.jade$/i,
+      loader: 'jade-loader',
+      exclude: /(node_modules)/
+    }, {
+      test: /\.(png|jpg|gif)$/,
+      loader: 'url-loader?limit=8192&name=images/[name]-[hash].[ext]'
+    }]
   },
   plugins: plugins,
   resolve: {

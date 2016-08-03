@@ -3,13 +3,12 @@
 var base = require('base-extend-backbone');
 var BaseView = base.View;
 var IndexModel = require('../../models/index/main.model');
-var indexTemp = require('./template/main.html');
-var imgSrc = require('../../../images/change.png');
+var imgSrc = require('../../../images/aaronyuan1.jpg');
 
 var View = BaseView.extend({
   el: '#indexContainer',
   rawLoader: function () {
-    return indexTemp;
+    return '';
   },
   context: function (args) {
     console.log(args);
@@ -34,6 +33,8 @@ var View = BaseView.extend({
     }, function (e) {
       console.log(e);
     });
+
+    this.renderPage();
   },
   beforeDestroy: function () {
     //  进入销毁之前,将引用关系设置为null
@@ -43,6 +44,13 @@ var View = BaseView.extend({
   },
   destroyed: function () {
     //  销毁之后
+  },
+  renderPage: function () {
+    var tpl = require('./template/sayhi.html');
+    var html = this.compileHTML(tpl, {
+      name: '王小二'
+    });
+    this.$el.find('#sayHi').html(html);
   }
 });
 

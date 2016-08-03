@@ -4,8 +4,8 @@ var spawnSync = childProcess.spawnSync;
 
 var report = spawnSync('');
 console.log(report);
-if(report.status){
-	console.log('请review你的源代码，让其通过eslint的检查');
+if (report.status) {
+  console.log('请review你的源代码，让其通过eslint的检查');
 }
 process.exit(report.status);
 

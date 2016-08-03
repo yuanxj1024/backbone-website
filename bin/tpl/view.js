@@ -11,9 +11,11 @@ var View = BaseView.extend({
   context: function (args) {
     console.log(args);
   },
+  // 插入dom之前
   beforeMount: function () {
     //  初始化一些自定义属性
   },
+  // 插入dom之后
   afterMount: function () {
     //  获取findDOMNode DOM Node
   },

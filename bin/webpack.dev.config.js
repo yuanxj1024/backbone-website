@@ -1,7 +1,3 @@
-/**
- * Created by xiangwenwen on 16/4/12.
- */
-
 var webpack = require('webpack');
 var path = require('path');
 var fs = require('fs');
@@ -32,20 +28,20 @@ var plugins = [];
 plugins.push(extractSASS);
 
 //  提取公共文件
-plugins.push(new webpack.optimize.CommonsChunkPlugin('common','common.js'));
+plugins.push(new webpack.optimize.CommonsChunkPlugin('common', 'common.js'));
 
 //  处理html
 var pages = getEntry('./app/web/*.jade');
 for (var chunkname in pages) {
   var conf = {
-    filename: chunkname+'.html',
+    filename: chunkname + '.html',
     template: pages[chunkname],
     inject: true,
     minify: {
-        removeComments: true,
-        collapseWhitespace: false
+      removeComments: true,
+      collapseWhitespace: false
     },
-    chunks: ['common',chunkname],
+    chunks: ['common', chunkname],
     hash: true,
     complieConfig: compileConfig
   }
@@ -61,37 +57,31 @@ for (var chunkname in pages) {
 var config = {
   entry: entrys,
   output: {
-    path: path.resolve(containerPath,'./app/www/'),
+    path: path.resolve(containerPath, './app/www/'),
     publicPath: './',
     filename: '[name].js'
   },
-  devtool:'source-map',
-  module:{
-    loaders:[
-      {
-        test: /\.html$/,
-        loader: 'raw',
-        exclude: /(node_modules)/
-      },
-      {
-        test: /\.js$/,
-        loader: 'eslint-loader',
-        exclude: /(node_modules)/
-      },
-      {
-        test: /\.scss$/i,
-        loader: extractSASS.extract(['css','sass'])
-      },
-      {
-        test: /.jade$/,
-        loader: 'jade-loader',
-        exclude: /(node_modules)/
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        loader: 'url-loader?limit=8192&name=images/[name].[ext]'
-      }
-    ]
+  devtool: 'source-map',
+  module: {
+    loaders: [{
+      test: /\.html$/,
+      loader: 'raw',
+      exclude: /(node_modules)/
+    }, {
+      test: /\.js$/,
+      loader: 'eslint-loader',
+      exclude: /(node_modules)/
+    }, {
+      test: /\.scss$/i,
+      loader: extractSASS.extract(['css', 'sass'])
+    }, {
+      test: /.jade$/,
+      loader: 'jade-loader',
+      exclude: /(node_modules)/
+    }, {
+      test: /\.(png|jpg|gif)$/,
+      loader: 'url-loader?limit=8192&name=images/[name].[ext]'
+    }]
   },
   plugins: plugins,
   resolve: {

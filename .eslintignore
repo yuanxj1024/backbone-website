@@ -13,3 +13,9 @@ app/www/**
 app/images/**
 bin/**
 test/
+
+app/src/module/base
+app/src/module/auxiliary
+
+gulpfile.js
+tools.js

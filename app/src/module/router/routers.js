@@ -1,7 +1,6 @@
 /**
- * Created by xiangwenwen on 16/4/12.
+ * 路由
  */
-
 var base = require('base-extend-backbone');
 var BaseRouter = base.Router;
 var IndexView = require('../../views/index/main.view');

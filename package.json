@@ -1,7 +1,7 @@
 {
-  "name": "generate-sapling-pc",
+  "name": "generate-backbone",
   "version": "0.1.0",
-  "description": "PC端项目脚手架",
+  "description": "backbone项目脚手架",
   "main": "index.js",
   "scripts": {
     "test": "mocha --colors test/*.spec.js",
@@ -13,18 +13,15 @@
     "precommit": "npm run eslint"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sapling-team/generate-sapling-pc.git"
+    "type": "git"
   },
   "keywords": [
-    "yeoman-generator"
+    "backbone,webpack"
   ],
-  "author": "icepy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sapling-team/generate-sapling-pc/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/sapling-team/generate-sapling-pc#readme",
   "devDependencies": {
     "browser-sync": "^2.11.2",
     "chai": "^3.5.0",
@@ -51,9 +48,5 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.15"
-  },
-  "dependencies": {
-    "auxiliary-additions": "0.0.1",
-    "base-extend-backbone": "^0.1.4"
   }
 }

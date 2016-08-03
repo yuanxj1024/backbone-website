@@ -1,7 +1,3 @@
-/**
- * Created by xiangwenwen on 16/4/14.
- */
-
 module.exports = complie;
 
 function maps(obj,arr) {

@@ -1,7 +1,3 @@
-/**
- * Created by xiangwenwen on 16/4/12.
- */
-
 var Backbone = require('backbone');
 var AppRouter = require('./routers');
 var appRouter = null;
