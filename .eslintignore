@@ -19,3 +19,6 @@ app/src/module/auxiliary
 
 gulpfile.js
 tools.js
+
+app/src/module/config.js
+app/src/module/config.default.js

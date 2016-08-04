@@ -12,7 +12,7 @@ var alias = require('./alias');
 var compile = require('./compile');
 
 //  清理www目录
-rmdir('./app/www/');
+// rmdir('./app/www/');
 
 //  对complie配置文件进行处理
 compileConfig = compile(compileConfig);
