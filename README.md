@@ -14,8 +14,8 @@ MP牛人BBS  PC端项目脚手架，项目所使用的工具如下：
 
 *更多文档*
 
-*	[BaseView使用说明]()
-*	[BaseModel使用说明]()
+*	[BaseView使用说明](https://github.com/yuanxj1024/backbone-website/blob/master/doc/baseview%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
+*	[BaseModel使用说明](https://github.com/yuanxj1024/backbone-website/blob/master/doc/basemodel%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
 
 
 ## How use it?
