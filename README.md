@@ -22,13 +22,13 @@ MP牛人BBS  PC端项目脚手架，项目所使用的工具如下：
 
 download project
 
-	git clone https://github.com/sapling-team/generator-sapling-pc.git
+	git clone 该项目git
 
 remove git `origin` and add your project `new origin`
 
 	git remote remove origin
 
-	git remote add origin git@github.com:sapling-team/generator-sapling-pc.git
+	git remote add origin 新项目的git 
 
 	git pull
 
@@ -41,12 +41,12 @@ execute npm install
 	npm install --verbose
 
 
-we can using npm scripts `start` `dev` `product` `test`
+we can using npm scripts `start` `dev` `release` `test`
 
 - npm start 启动一个服务器
 - npm test 启动mocha进行自动化测试
 - npm run dev 启动webpack dev构建环境
-- npm run product 启动webpack product + gulp build构建可发布的资源
+- npm run release 构建可发布的资源
 
 ## tools.js
 
