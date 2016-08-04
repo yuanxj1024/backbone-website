@@ -11,6 +11,13 @@ MP牛人BBS  PC端项目脚手架，项目所使用的工具如下：
 - npm scripts
 - browser-sync
 
+
+*更多文档*
+
+*	[BaseView使用说明]()
+*	[BaseModel使用说明]()
+
+
 ## How use it?
 
 download project

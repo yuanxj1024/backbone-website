@@ -11,7 +11,7 @@
 - destroyed：base.View实例销毁之后
 
 
-*Context Hook*
+*Context Hook* - 暂时不使用
 
 - context：上下文钩子函数，可以通过`triggerContextHook`来反向通信
 
