@@ -6,7 +6,7 @@
 
 'use strict';
 
-var Backbone = require('backbone');
+var Backbone = window.Backbone;
 var juicer = require('juicer');
 var warn = require('../util/warn');
 var Tools = require('../util/tools');
@@ -174,6 +174,22 @@ var BaseView = Backbone.View.extend({
     this.$parent = null;
     this.$root = null;
     this._ICEDestroy();
+  },
+  /**
+   * 自定义事件
+   */
+  on: function (name, handler, context) {
+    if (context) {
+      Backbone.on(name, handler, context);
+    } else {
+      Backbone.on(name, handler);
+    }
+  },
+  /**
+   * 触发自定义事件
+   */
+  trigger: function (name, data) {
+    Backbone.trigger(name, data);
   }
 });
 
