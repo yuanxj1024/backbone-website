@@ -24,6 +24,7 @@
     "amazeui": "^2.6.1"
   },
   "devDependencies": {
-    "juicer": "^0.4.0"
+    "juicer": "^0.4.0",
+    "bootstrap": "^3.3.7"
   }
 }

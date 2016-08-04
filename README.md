@@ -106,7 +106,7 @@ js使用commonjs模块化规范来组织
 - jquery
 - underscore
 - [Backbone](http://www.css88.com/doc/backbone/)
-- [AmazueUI](http://amazeui.org/css/)
+- [bootcss v3](http://v3.bootcss.com/)
 - [juicer](http://juicer.name/docs/docs_zh_cn.html#!syntax)
 
 阅读[base-extend-backbone](https://github.com/sapling-team/base-extend-backbone)和[auxiliary-additions](https://github.com/sapling-team/auxiliary-additions)来熟悉如何使用base扩展和其他通用的函数库。
