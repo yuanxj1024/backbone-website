@@ -7,16 +7,13 @@
     "test": "mocha --colors test/*.spec.js",
     "start": "gulp server",
     "dev": "webpack --watch --colors --config bin/webpack.dev.config.js",
-    "predev":"gulp build",
-
+    "predev": "gulp build",
     "product": "gulp build",
     "preproduct": "webpack --colors --config bin/webpack.product.config.js --optimize-minimize",
-
     "eslint": "eslint app/src/ app/stylesheets",
     "precommit": "npm run eslint",
-
-    "copy":"gulp copy-to-dist",
-    "precopy":"NODE_ENV=product gulp rebuild:config",
+    "copy": "gulp copy-to-dist",
+    "precopy": "NODE_ENV=product gulp rebuild:config",
     "release": "webpack --colors --config bin/webpack.product.config.js --optimize-minimize",
     "prerelease": "npm run copy"
   },
@@ -52,6 +49,7 @@
     "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
     "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.4",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",

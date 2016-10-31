@@ -12,15 +12,14 @@ gulp.task('server', function () {
     port: 3000
   });
   gulp.watch('./app/**/*.*', function (file) {
-    console.log(file.path);
     browserSync.reload();
   })
 });
 
 gulp.task('build', function () {
   return gulp.src([
-      'app/link/*.*',
-      'app/link/**/*.*',
+      'app/plugins/*.*',
+      'app/plugins/**/*.*',
     ], {
       base: 'app/'
     })
@@ -28,8 +27,8 @@ gulp.task('build', function () {
 });
 gulp.task('copy-to-dist', function () {
   return gulp.src([
-      'app/link/*.*',
-      'app/link/**/*.*',
+      'app/plugins/*.*',
+      'app/plugins/**/*.*',
     ], {
       base: 'app/'
     })

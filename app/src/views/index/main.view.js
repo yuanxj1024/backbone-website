@@ -4,6 +4,7 @@ var base = require('base-extend-backbone');
 var BaseView = base.View;
 var IndexModel = require('../../models/index/main.model');
 var imgSrc = require('../../../images/aaronyuan1.jpg');
+var tpl = require('./template/sayhi.html');
 
 var View = BaseView.extend({
   el: '#indexContainer',
@@ -46,7 +47,6 @@ var View = BaseView.extend({
     //  销毁之后
   },
   renderPage: function () {
-    var tpl = require('./template/sayhi.html');
     var html = this.compileHTML(tpl, {
       name: '王小二'
     });

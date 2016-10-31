@@ -1,7 +1,7 @@
 var $ = require('jquery');
+var MainView = require('./views/code/main.view');
+require('../stylesheets/code.scss');
 $(function () {
-  var MainView = require('./views/code/main.view');
   var mainView = new MainView();
   console.log(mainView);
-  require('../stylesheets/code.scss');
 });
