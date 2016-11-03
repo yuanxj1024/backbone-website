@@ -8,8 +8,8 @@ var rimraf = require('rimraf');
 
 gulp.task('server', function () {
   browserSync.init({
-    server: './app',
-    port: 3000
+    server: './app/www',
+    port: 3300
   });
   gulp.watch('./app/**/*.*', function (file) {
     browserSync.reload();
