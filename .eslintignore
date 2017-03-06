@@ -1,18 +1,11 @@
-# /node_modules and /bower_components ignored by default
+node_modules
 
-node_modules/**
-app/plugins/**
-bower_components/**
+.idea
+bin
 
-.idea/**
-app/www/**
-bin/**
-
-app/src/module/base
-app/src/module/auxiliary
+app/src/module
+dist
+www
 
 gulpfile.js
 tools.js
-
-app/src/module/config.js
-app/src/module/config.default.js

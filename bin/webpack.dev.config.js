@@ -2,17 +2,14 @@ var webpack = require('webpack');
 var path = require('path');
 var fs = require('fs');
 var containerPath = path.resolve('./');
-var compileConfig = require('../app/compile.config.json');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var extractSASS = new ExtractTextPlugin('[name].css');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var getEntry = require('./getEntry');
-var rmdir = require('./rmdir');
-var alias = require('./alias');
+var alias = require('../app/alias');
 var compile = require('./compile');
+var compileConfig = require('../app/compile.config.json');
 
-//  清理www目录
-// rmdir('./app/www/');
 
 //  对complie配置文件进行处理
 compileConfig = compile(compileConfig);
@@ -28,10 +25,11 @@ var plugins = [];
 plugins.push(extractSASS);
 
 //  提取公共文件
-plugins.push(new webpack.optimize.CommonsChunkPlugin('common', 'common.js'));
+// plugins.push(new webpack.optimize.CommonsChunkPlugin('common', 'common.js'));
 
 //  处理html
-var pages = getEntry('./app/web/*.jade');
+var pages = getEntry('./app/src/*.pug');
+console.log('\r\npages\r\n',pages);
 for (var chunkname in pages) {
   var conf = {
     filename: chunkname + '.html',
@@ -41,7 +39,7 @@ for (var chunkname in pages) {
       removeComments: true,
       collapseWhitespace: false
     },
-    chunks: ['common', chunkname],
+    chunks: [chunkname],
     hash: true,
     complieConfig: compileConfig
   }
@@ -57,36 +55,37 @@ for (var chunkname in pages) {
 var config = {
   entry: entrys,
   output: {
-    path: path.resolve(containerPath, './app/www/'),
-    publicPath: './',
+    path: path.resolve(containerPath, './app/src'),
     filename: '[name].js'
   },
   devtool: 'source-map',
   module: {
-    loaders: [{
+    rules: [{
       test: /\.html$/,
-      loader: 'raw',
+      use: ['raw-loader'],
       exclude: /(node_modules)/
     }, {
       test: /\.js$/,
-      loader: 'eslint-loader',
+      use: ['babel-loader'],
       exclude: /(node_modules)/
     }, {
       test: /\.scss$/i,
-      loader: extractSASS.extract(['css', 'sass'])
+      use: extractSASS.extract({
+        use: ['css-loader!sass-loader']
+      })
     }, {
-      test: /.jade$/,
-      loader: 'jade-loader',
+      test: /.pug$/,
+      use: ['pug-loader'],
       exclude: /(node_modules)/
     }, {
       test: /\.(png|jpg|gif)$/,
-      loader: 'url-loader?limit=8192&name=images/[name].[ext]'
+      use: ['url-loader?limit=8192&name=img/[name].[ext]']
     }]
   },
   plugins: plugins,
   resolve: {
     alias: alias,
-    extensions: ['', '.js', '.css', '.scss', '.jade', '.png', '.jpg']
+    extensions: ['.js', '.css', '.scss', '.pug', '.png', '.jpg']
   },
   externals: {
     jquery: 'window.jQuery',

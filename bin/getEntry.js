@@ -8,7 +8,11 @@ function getEntry(sourcePath) {
   var basename;
   glob.sync(sourcePath).forEach(function (entry) {
     basename = path.basename(entry, path.extname(entry));
-    entrys[basename] = entry;
+    if (entry.indexOf('.js') > 0) {
+      entrys[basename] = [entry];
+    } else {
+      entrys[basename] = entry;
+    }
   });
   return entrys;
 }
