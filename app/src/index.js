@@ -1,12 +1,9 @@
-// var MainView = require('./views/index/main.view');
-// var $ = require('jquery');
-// require('../stylesheets/index.scss');
-//
-// $(function indexMain() {
-//   var mainView = new MainView();
-//   console.log(mainView);
-// });
-
 import $ from 'jquery';
+import Backbone from 'Backbone';
+import MainView from './views/index/main.view.js';
 
-console.log($, 'index');
+require('amazeuiLib/dist/css/amazeui.min.css');
+
+const view = new MainView();
+
+console.log($, '\rnindex\r\n', Backbone, '\r\nMainView', view);

@@ -3,7 +3,7 @@ var BaseModel = require('./instance/baseModel');
 var BaseRouter = require('./instance/baseRouter');
 var storage = require('./store/storage');
 module.exports = {
-  'View': BaseView,
+  'BaseView': BaseView,
   'Model': BaseModel,
   'Router': BaseRouter,
   'storage': storage

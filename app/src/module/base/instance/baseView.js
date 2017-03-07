@@ -7,6 +7,7 @@
 'use strict';
 
 var Backbone = window.Backbone;
+var _ = require('underscore');
 var juicer = require('juicer');
 var warn = require('../util/warn');
 var Tools = require('../util/tools');

@@ -6,13 +6,11 @@
   "scripts": {
     "dev": "node ./bin/server.js",
     "product": "gulp build",
-    "preproduct": "webpack --colors --config bin/webpack.product.config.js --optimize-minimize",
+    "webpack": "webpack --colors --config bin/webpack.product.config.js --optimize-minimize",
     "eslint": "eslint app/src/ app/stylesheets",
     "precommit": "npm run eslint",
-    "copy": "gulp copy-to-dist",
-    "precopy": "NODE_ENV=product gulp rebuild:config",
-    "release": "webpack --colors --config bin/webpack.product.config.js --optimize-minimize",
-    "prerelease": "npm run copy"
+    "build": "webpack --colors --config bin/webpack.product.config.js --optimize-minimize",
+    "prebuild": "gulp release"
   },
   "repository": {
     "type": "git"

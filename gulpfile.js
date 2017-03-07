@@ -3,7 +3,9 @@ var rimraf = require('rimraf');
 
 var path = {
   release: [
-    './app/**/img/**/*.*'
+    './app/src/img/**',
+    './app/src/plugins/**'
+    // './app/src/fonts/**',
   ]
 };
 

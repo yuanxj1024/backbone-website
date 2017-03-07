@@ -1,33 +1,29 @@
-'use strict';
+import {
+  BaseView,
+} from 'ExtendBackbone';
 
-var base = require('base-extend-backbone');
-var BaseView = base.View;
-
-var View = BaseView.extend({
+export default BaseView.extend({
   el: '',
+  data: {
+  },
   rawLoader: function () {
     return '';
   },
-  context: function (args) {
-    console.log(args);
-  },
   // 插入dom之前
-  beforeMount: function () {
+  beforeMount() {
     //  初始化一些自定义属性
   },
   // 插入dom之后
-  afterMount: function () {
+  afterMount() {
     //  获取findDOMNode DOM Node
   },
-  ready: function () {
+  ready() {
     //  初始化
   },
-  beforeDestroy: function () {
-    //  进入销毁之前,将引用关系设置为null
+  beforeDestroy() {
+  //  进入销毁之前,将引用关系设置为null
   },
-  destroyed: function () {
+  destroyed() {
     //  销毁之后
-  }
+  },
 });
-
-module.exports = View;

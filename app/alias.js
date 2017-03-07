@@ -6,7 +6,8 @@ var containerPath = path.resolve('./');
 
 //	别名
 var alias = {
-  extendBackbone: path.resolve(containerPath, './app/src/module/base')
+  ExtendBackbone: path.resolve(containerPath, './app/src/module/base'),
+  amazeuiLib:  path.resolve(containerPath, './node_modules/amazeui')
 };
 
 module.exports = alias;

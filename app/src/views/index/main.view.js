@@ -1,57 +1,45 @@
-'use strict';
+import {
+  BaseView,
+} from 'ExtendBackbone';
 
-var base = require('base-extend-backbone');
-var BaseView = base.View;
-var IndexModel = require('../../models/index/main.model');
-var imgSrc = require('../../../images/aaronyuan1.jpg');
-var tpl = require('./template/sayhi.html');
+// var IndexModel = require('../../models/index/main.model');
+const tpl = require('./template/sayhi.html');
 
-var View = BaseView.extend({
+export default BaseView.extend({
   el: '#indexContainer',
-  rawLoader: function () {
+  data: {
+    name: 'Aaron',
+  },
+  rawLoader() {
     return '';
   },
-  context: function (args) {
-    console.log(args);
-  },
-  beforeMount: function () {
+  beforeMount() {
     //  初始化一些自定义属性
     this.indexParameter = {
-      id: 110
+      id: 110,
     };
   },
-  afterMount: function () {
+  afterMount() {
     //  获取DOM Node
     this.imgContainer = this.findDOMNode('#imgContainer');
   },
-  ready: function () {
-    this.imgContainer.html('<img src="' + imgSrc + '"/>');
-    //  初始化Model
-    this.indexModel = new IndexModel();
-    this.indexModel.setChangeURL(this.indexParameter);
-    this.indexModel.execute(function (response) {
-      console.log(response);
-    }, function (e) {
-      console.log(e);
-    });
-
+  ready() {
+    console.log(111, this.data);
     this.renderPage();
   },
-  beforeDestroy: function () {
+  beforeDestroy() {
     //  进入销毁之前,将引用关系设置为null
     this.img = null;
     this.indexParameter = null;
     this.indexModel = null;
   },
-  destroyed: function () {
+  destroyed() {
     //  销毁之后
   },
-  renderPage: function () {
-    var html = this.compileHTML(tpl, {
-      name: '王小二'
+  renderPage() {
+    const html = this.compileHTML(tpl, {
+      name: '王小二',
     });
     this.$el.find('#sayHi').html(html);
-  }
+  },
 });
-
-module.exports = View;

@@ -1,16 +1,15 @@
 {
   "random":true,
   "script":[
-      "jquery/dist/jquery.min.js",
-      "underscore/underscore-min.js",
-      "backbone/backbone-min.js",
-      "bootstrap/dist/js/bootstrap.min.js"
   ],
   "style":[
-    "bootstrap/dist/css/bootstrap.min.css"
+
   ],
-  "title":{
-    "index":"webpack index",
-    "code":"webpack code"
-  }
+  "vendor": [
+    "jquery",
+    "juicer",
+    "underscore",
+    "backbone",
+    "amazeui"
+  ]
 }

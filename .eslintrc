@@ -24,6 +24,7 @@
     "no-console": "off",
     "max-len": "off",
     "import/no-dynamic-require": "off",
-    "no-useless-escape": "warn"
+    "no-useless-escape": "warn",
+    "react/no-find-dom-node": "off"
   }
 }

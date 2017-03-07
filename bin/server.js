@@ -9,7 +9,6 @@ var port = 8760;
 for (var item in config.entry) {
   config.entry[item].unshift("webpack-dev-server/client?http://localhost:" + port + "/", 'webpack/hot/dev-server');
 }
-console.log(1, config.entry);
 config.plugins.push(new OpenBrowserPlugin({
   url: 'http://localhost:' + port
 }));

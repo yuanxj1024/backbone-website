@@ -23,13 +23,22 @@ var plugins = [];
 
 //  切割css文件
 plugins.push(extractSASS);
+plugins.push(new webpack.HotModuleReplacementPlugin());
+
+
+// 第三方插件
+entrys['vendor'] = compileConfig.vendor;
 
 //  提取公共文件
-// plugins.push(new webpack.optimize.CommonsChunkPlugin('common', 'common.js'));
+plugins.push(new webpack.optimize.CommonsChunkPlugin({
+  name: 'vendor',
+  filename: 'vendor.js?[hash:8]'
+}));
+
 
 //  处理html
 var pages = getEntry('./app/src/*.pug');
-console.log('\r\npages\r\n',pages);
+
 for (var chunkname in pages) {
   var conf = {
     filename: chunkname + '.html',
@@ -39,7 +48,7 @@ for (var chunkname in pages) {
       removeComments: true,
       collapseWhitespace: false
     },
-    chunks: [chunkname],
+    chunks: ['vendor', chunkname],
     hash: true,
     complieConfig: compileConfig
   }
@@ -69,6 +78,11 @@ var config = {
       use: ['babel-loader'],
       exclude: /(node_modules)/
     }, {
+      test: /\.css$/i,
+      use: extractSASS.extract({
+        use: ['css-loader']
+      })
+    }, {
       test: /\.scss$/i,
       use: extractSASS.extract({
         use: ['css-loader!sass-loader']
@@ -78,8 +92,12 @@ var config = {
       use: ['pug-loader'],
       exclude: /(node_modules)/
     }, {
-      test: /\.(png|jpg|gif)$/,
+      test: /\.(png|jpg|gif|jpge)$/,
       use: ['url-loader?limit=8192&name=img/[name].[ext]']
+    }, {
+      test: /\.(woff|woff2|svg|eot|ttf)$/,
+      use: ['url-loader?limit=8192&name=fonts/[name].[ext]']
+
     }]
   },
   plugins: plugins,
@@ -87,10 +105,6 @@ var config = {
     alias: alias,
     extensions: ['.js', '.css', '.scss', '.pug', '.png', '.jpg']
   },
-  externals: {
-    jquery: 'window.jQuery',
-    backbone: 'window.Backbone',
-    underscore: 'window._'
-  }
+  externals: {}
 };
 module.exports = config;

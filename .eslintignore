@@ -9,3 +9,4 @@ www
 
 gulpfile.js
 tools.js
+app/alias.js
